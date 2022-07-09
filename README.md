@@ -12,7 +12,25 @@
     ```
      install maven
     ```
-    
+### Managing cookies
+
+To manage cookies, the following code can be used:
+```java
+        driver.manage().addCookie(new Cookie("cookieName", "lambdatest")); // Creates and adds the cookie
+
+        Set<Cookie> cookiesSet = driver.manage().getCookies(); // Returns the List of all Cookies
+
+        for (Cookie itemCookie : cookiesSet) {
+            System.out.println((itemCookie.getName() + ";" + itemCookie.getValue() + ";" + itemCookie.getDomain() + ";"
+                    + itemCookie.getPath() + ";" + itemCookie.getExpiry() + ";" + itemCookie.isSecure()));
+        }
+
+        driver.manage().getCookieNamed("cookieName"); // Returns the specific cookie according to name
+
+        driver.manage().deleteCookie(driver.manage().getCookieNamed("cookieName")); // Deletes the specific cookie
+        driver.manage().deleteCookieNamed("cookieName"); // Deletes the specific cookie according to the Name
+        driver.manage().deleteAllCookies(); // Deletes all the cookies
+```
 ### Run your First Test
 1. Clone the Java-Selenium-Sample repository. 
 ```
